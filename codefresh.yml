@@ -4,9 +4,4 @@ steps:
   stress:
     image: progrium/stress
     command: 
-      - --cpu 
-      - ${{CPUS}}
-      - --vm 
-      - ${{MEM256}}
-      - --timeout
-      - ${{TIMEOUT}}
+      - --cpu ${{CPUS}} --vm ${{MEM256}} --timeout ${{TIMEOUT}}
