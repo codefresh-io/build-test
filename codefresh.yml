@@ -2,9 +2,8 @@ version: '1.0'
 # see https://hub.docker.com/r/progrium/stress/
 steps:
   stress:
-    type: build
     image_name: progrium/stress
-    commands: 
+    command: 
       - --cpu 
       - ${{CPUS}}
       - --vm 
