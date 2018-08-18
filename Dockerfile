@@ -1,4 +1,9 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-    apt-get install -yqq wget curl stress fio iperf qperf sysstat net-tools iputils-ping
+    apt-get install -y wget curl bc stress fio iperf qperf sysstat net-tools iputils-ping
+
+ENV PATH=${PATH}:/opt/bin
+WORKDIR /opt
+COPY . /opt/
+

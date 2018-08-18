@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+
+SQRT_COUNT=${SQRT_COUNT:-20000}
+
+COMMAND="time for ii in {1..$SQRT_COUNT}; do  bc <<< 'sqrt(1234567890.0123456789)' > /dev/null; done"
+
+echo "Executing $COMMAND ..."
+eval $COMMAND
