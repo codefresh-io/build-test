@@ -22,16 +22,16 @@ steps:
     image: ${{build}}
     commands:
       - fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randwrite --bs=8192k --direct=1 --size=1G --numjobs=1 --group_reporting
-      - rm -rf randread* randwite*      
+      - rm -rfv randread* randwite*      
     #fail_fast: false
     #on_finish:
-    #  - rm -rf randread* randwite*
+    #  - rm -rfv randread* randwite*
 
   fio-randread-direct-bs8m-size1G-1jobs:
     image: ${{build}}
     commands:
       - fio --name=randread --ioengine=libaio --iodepth=1 --rw=randwrite --bs=8192k --direct=1 --size=1G --numjobs=1 --group_reporting
-      - rm -rf randread* randwite*  
+      - rm -rfv randread* randwite*  
     #fail_fast: false
     #on_finish:
     #  - rm -rf randread* randwite*
@@ -40,7 +40,7 @@ steps:
     image: ${{build}}
     commands:
       - fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
-      - rm -rf randread* randwite*
+      - rm -rfv randread* randwite*
 
     #fail_fast: false
     # on_finish:
@@ -50,7 +50,7 @@ steps:
     image: ${{build}}
     commands:
       - fio --name=randread --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
-      - rm -rf randread* randwite*
+      - rm -rfv randread* randwite*
 
     #fail_fast: true
     # on_finish:
