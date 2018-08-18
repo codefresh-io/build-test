@@ -9,8 +9,10 @@ steps:
   
   push:
     type: push
-    image: ${{build}}
-    
+    candidate: ${{build}}
+    # tag: latest
+    image_name: codefresh/build-test
+
   cpu-sqrt:
     image: ${{build}}
     commands:
