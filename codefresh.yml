@@ -13,12 +13,12 @@ steps:
     # tag: latest
     image_name: codefresh/build-test
 
-  cpu sqrt:
+  cpu_sqrt:
     image: ${{build}}
     commands:
       - cpu-sqrt
 
-  fio randwrite direct bs8m size1G 1jobs:
+  fio_randwrite_direct_bs8m_size1G_1jobs:
     image: ${{build}}
     commands:
       - fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randwrite --bs=8192k --direct=1 --size=1G --numjobs=1 --group_reporting
@@ -27,7 +27,7 @@ steps:
     #on_finish:
     #  - rm -rfv randread* randwrite*
 
-  fio randread direct bs8m size1G 1jobs:
+  fio_randread_direct_bs8m_size1G_1jobs:
     image: ${{build}}
     commands:
       - fio --name=randread --ioengine=libaio --iodepth=1 --rw=randwrite --bs=8192k --direct=1 --size=1G --numjobs=1 --group_reporting
@@ -36,7 +36,7 @@ steps:
     #on_finish:
     #  - rm -rf randread* randwrite*
 
-  fio randwrite direct bs4k size32M 4jobs:
+  fio_randwrite_direct_bs4k_size32M_4jobs:
     image: ${{build}}
     commands:
       - fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
@@ -46,7 +46,7 @@ steps:
     # on_finish:
     #   - rm -rf randread* randwrite*
 
-  fio randread direct bs4k size32M 4jobs:
+  fio_randread_direct_bs4k_size32M_4jobs:
     image: ${{build}}
     commands:
       - fio --name=randread --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
