@@ -13,48 +13,48 @@ steps:
     # tag: latest
     image_name: codefresh/build-test
 
-  cpu-sqrt:
+  cpu sqrt:
     image: ${{build}}
     commands:
       - cpu-sqrt
 
-  fio-randwrite-direct-bs8m-size1G-1jobs:
+  fio randwrite direct bs8m size1G 1jobs:
     image: ${{build}}
     commands:
       - fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randwrite --bs=8192k --direct=1 --size=1G --numjobs=1 --group_reporting
-      - rm -rfv randread* randwite*      
+      - rm -rfv randread* randwrite*      
     #fail_fast: false
     #on_finish:
-    #  - rm -rfv randread* randwite*
+    #  - rm -rfv randread* randwrite*
 
-  fio-randread-direct-bs8m-size1G-1jobs:
+  fio randread direct bs8m size1G 1jobs:
     image: ${{build}}
     commands:
       - fio --name=randread --ioengine=libaio --iodepth=1 --rw=randwrite --bs=8192k --direct=1 --size=1G --numjobs=1 --group_reporting
-      - rm -rfv randread* randwite*  
+      - rm -rfv randread* randwrite*  
     #fail_fast: false
     #on_finish:
-    #  - rm -rf randread* randwite*
+    #  - rm -rf randread* randwrite*
 
-  fio-randwrite-direct-bs4k-size32M-4jobs:
+  fio randwrite direct bs4k size32M 4jobs:
     image: ${{build}}
     commands:
       - fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
-      - rm -rfv randread* randwite*
+      - rm -rfv randread* randwrite*
 
     #fail_fast: false
     # on_finish:
-    #   - rm -rf randread* randwite*
+    #   - rm -rf randread* randwrite*
 
-  fio-randread-direct-bs4k-size32M-4jobs:
+  fio randread direct bs4k size32M 4jobs:
     image: ${{build}}
     commands:
       - fio --name=randread --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
-      - rm -rfv randread* randwite*
+      - rm -rfv randread* randwrite*
 
     #fail_fast: true
     # on_finish:
-    #   - rm -rf randread* randwite*
+    #   - rm -rf randread* randwrite*
 
   # stress:
   #   image: progrium/stress
