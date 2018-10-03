@@ -30,7 +30,7 @@ steps:
   fio_randread_direct_bs8m_size1G_1jobs:
     image: ${{build}}
     commands:
-      - fio --name=randread --ioengine=libaio --iodepth=1 --rw=randwrite --bs=8192k --direct=1 --size=1G --numjobs=1 --group_reporting
+      - fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randread --bs=8192k --direct=1 --size=1G --numjobs=1 --group_reporting
       - rm -rfv randread* randwrite*  
     #fail_fast: false
     #on_finish:
@@ -39,7 +39,7 @@ steps:
   fio_randwrite_direct_bs4k_size32M_4jobs:
     image: ${{build}}
     commands:
-      - fio --name=randwrite --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
+      - fio --name=randwrite4k --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
       - rm -rfv randread* randwrite*
 
     #fail_fast: false
@@ -49,7 +49,7 @@ steps:
   fio_randread_direct_bs4k_size32M_4jobs:
     image: ${{build}}
     commands:
-      - fio --name=randread --ioengine=libaio --iodepth=1 --rw=randwrite --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
+      - fio --name=randread4k --ioengine=libaio --iodepth=1 --rw=randread --bs=4k --direct=1 --size=32M --numjobs=4 --group_reporting
       - rm -rfv randread* randwrite*
 
     #fail_fast: true
