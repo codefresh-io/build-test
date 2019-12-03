@@ -13,6 +13,12 @@ steps:
     # tag: latest
     image_name: codefresh/build-test
 
+  pushLatest:
+    type: push
+    candidate: ${{build}}
+    tag: latest
+    image_name: codefresh/build-test
+
   cpu_sqrt:
     image: ${{build}}
     commands:
